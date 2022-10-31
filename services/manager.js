@@ -1,5 +1,3 @@
 myApp.service("ManagerService", function($http) {
-  const create = (data) => {
-    return $http.post(`${baseUrl}managers/`, data);
-  }
+  this.create = (data) => $http.post(`${baseUrl}managers/`, data);
 })

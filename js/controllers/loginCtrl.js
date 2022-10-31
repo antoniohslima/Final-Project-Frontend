@@ -4,17 +4,16 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", function($scope, LoginS
     password: '',
   }
 
-  $scope.token = '';
-
   const login = () => {
-    return LoginService.getManager($scope.manager)
+    return LoginService.getToken($scope.manager)
       .then(resp => {
-        $scope.token = resp.data;
+        localStorage.setItem("token", resp.data);
+        localStorage.setItem("email", $scope.manager.email);
         $scope.manager.email = '';
         $scope.manager.password = '';
+
       })
       .catch(() => {
-        // $scope.error = "Unable to load data.";
         $scope.token = false;
         $scope.manager.password = '';
       }); 

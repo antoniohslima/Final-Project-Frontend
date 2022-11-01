@@ -17,6 +17,7 @@ myApp.controller("newManagerCtrl", ['$scope', "ManagerService", "$state", functi
     .catch(() => {
       $scope.err = true;
       $scope.managerData.password = '';
+      $scope.managerData.email = '';
     })
   }
 

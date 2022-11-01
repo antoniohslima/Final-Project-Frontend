@@ -4,7 +4,7 @@
 
 .jumbotron {
   border-radius: 25px; 
-  background-color: #d1d0c87a;
+  background-color: #d1d0c849;
   width: max-content;
   margin: -30px auto -20px auto;
 }
@@ -17,6 +17,18 @@
 .center-text {
   text-align: center;
 }
+
+#img-animation {
+  /* animation: up 1.5s ease-in forwards; */
+}
+
+@keyframes up {
+  100% {
+    transform: translateY(-100%);
+  }
+  
+}
+
 
 /* LOGIN */
 
@@ -45,7 +57,6 @@
 .header-img {
   max-height: 200px;
   max-width: auto;
-  border-radius: 23%;
   margin-top: 13%;
   display: block;
 }
@@ -88,4 +99,24 @@ a {
   left: 0;
   background-color: white;
   width: 40%;
+}
+
+/* home */
+
+.home-containers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-card {
+  margin: 10px 0 10px 0;
+  width: 450px;
+  height: 250px;
+  border-radius: 18px; 
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

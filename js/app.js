@@ -15,4 +15,10 @@ myApp.config(function($stateProvider) {
       templateUrl: "view/newManager.html",
       controller: "newManagerCtrl",
     })
+    .state({
+      name: "home",
+      url: "/home",
+      templateUrl: "view/home.html",
+      controller: "homeCtrl",
+    })
 })

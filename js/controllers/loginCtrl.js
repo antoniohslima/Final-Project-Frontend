@@ -1,4 +1,4 @@
-myApp.controller("loginCtrl", ['$scope', "LoginService", function($scope, LoginService) {
+myApp.controller("loginCtrl", ['$scope', "LoginService", "$state", function($scope, LoginService, $state) {
   $scope.manager = {
     email: '',
     password: '',
@@ -11,10 +11,9 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", function($scope, LoginS
         localStorage.setItem("email", $scope.manager.email);
         $scope.manager.email = '';
         $scope.manager.password = '';
-
+        $state.go('home');
       })
       .catch(() => {
-        $scope.token = false;
         $scope.manager.password = '';
       }); 
     };

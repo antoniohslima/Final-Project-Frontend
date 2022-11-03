@@ -1,12 +1,18 @@
+/* bege #DAD6CD */
+/* azul #3A99C9 */
+/* amarelo #FAAC01 */
+/* verde #FAAC01 */
+/* rosa #F26C60 */
+/* preto 1F1F21 */
+
 #welcome {
   margin-top: -40px;
 }
 
 .jumbotron {
   border-radius: 25px; 
-  background-color: #d1d0c849;
+  background-color: #DAD6CD;
   width: max-content;
-  margin: -30px auto -20px auto;
 }
 
 .form-control:focus {
@@ -17,18 +23,6 @@
 .center-text {
   text-align: center;
 }
-
-#img-animation {
-  /* animation: up 1.5s ease-in forwards; */
-}
-
-@keyframes up {
-  100% {
-    transform: translateY(-100%);
-  }
-  
-}
-
 
 /* LOGIN */
 
@@ -46,12 +40,12 @@
   margin-right: 20px;
 }
 
-.conatiner-longin-page {
+.container-login-page {
   border-radius: 25px; 
-  background-color: white;
+  background-color: #DAD6CD;
   max-width: max-content;
   display: flex;
-  margin: 50px auto auto 100px;
+  margin: 5vh 70vh auto auto;
 }
 
 .header-img {
@@ -82,7 +76,7 @@ a {
 }
 
 .half-page-container {
-  height: 110%;
+  height: 100vh;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -97,7 +91,7 @@ a {
 
 .left {
   left: 0;
-  background-color: white;
+  background-color: #DAD6CD;
   width: 40%;
 }
 
@@ -125,4 +119,48 @@ a {
 .home-card:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+/* Clients Home */
+
+.clients-container {
+  width: 90%;
+  margin:0 auto 0 auto;
+  text-align: center;
+}
+
+.form-clients:focus {
+  animation: input-grow 0.25s ease-in forwards;
+}
+
+.form-clients:not(:focus) {
+  animation: input-decrese 0.25s ease-in forwards;
+}
+
+/* ANIMATIONS */
+
+/* #img-animation {
+  animation: up 1.5s ease-in forwards;
+} */
+
+@keyframes up {
+  100% {
+    transform: translateY(-100%);
+  }
+  
+}
+
+@keyframes input-grow {
+  100% {
+    width: 26%;
+  }
+}
+
+@keyframes input-decrese {
+  0% {
+    width: 26%;
+  }
+  100% {
+    width: 20%;
+  }
 }

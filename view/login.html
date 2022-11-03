@@ -1,12 +1,12 @@
 <div style="background-color:#1F1F21;">
-    <div class="conatiner-longin-page jumbotron" >
+    <div class="container-login-page jumbotron" style="width:fit-content; height:80vh">
         <div style="display:flex; flex-direction: column; align-items: center;">
             <h1 id="welcome">Bem-vindo</h1>
             <h3 class="login-text">Esse aqui é o lugar onde você pode organizar sua vida e de seus clientes!</h3>
             <img class="header-img" src="../assets/img/icon_wallet.png"/>
         </div>
-        <form class="jumbotron">
-            <div style="margin: -30px auto -30px auto">
+        <form class="jumbotron" style="background-color: rgba(255, 255, 255, 0.74);">
+            <div style="margin: -40px auto -40px auto;">
                 <h2 style="margin-bottom:30px">Iniciar CarteiraTop</h2>
                 <hr>
                 <div class="login-container-form-item">
@@ -20,7 +20,8 @@
                 <div class="login-container-form-item">
                     <button class="btn btn-dark btn-block login-btn" ng-click="login()" ng-disabled="!manager.email || !manager.password">Login</button>
                 </div>
-                <hr>
+                <br>
+                <br>
                 <h7 style="margin-top: 10px">Não tem uma conta? <a  ui-sref="new-manager">Cadastre-se aqui</a></h7>
             </div>
         </form>

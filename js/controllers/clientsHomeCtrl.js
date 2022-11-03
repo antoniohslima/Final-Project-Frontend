@@ -1,22 +1,17 @@
-myApp.controller("clientsHomeCtrl", ['$scope', "ClientsHomeService", "$state", function($scope, ClientsHomeService, $state) {
-  
+myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", function($scope, ClientsService, $state) {
   const listClients = () => {
-    $scope.allClients = [];
-
-    return ClientsHomeService.getClients()
-    .then((resp) => {
-      $scope.allClients = resp.data;
-      console.log(allClients);
-      // $scope.err = false;
-      // $state.go('login');
-    })
-    .catch(() => {
-      // $scope.err = true;
-      // $scope.managerData.password = '';
-      // $scope.managerData.email = '';
-    })
+    
+    return ClientsService.getClients()
+      .then((resp) => {
+        $scope.allClients = resp.data;
+      })
+      .catch((e) => {
+        // console.log(e);
+        // $scope.err = true;
+        // $scope.managerData.password = '';
+        // $scope.managerData.email = '';
+      })
   }
 
-  $scope.listClients = listClients;
-  $scope.listClients()
+  listClients();
 }]);

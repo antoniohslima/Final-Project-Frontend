@@ -1,11 +1,13 @@
 const myApp = angular.module("wallet", ['ui.router']);
 const baseUrl = 'http://localhost:3000/';
 
-myApp.config(function($stateProvider) {
+myApp.config(function($stateProvider, $httpProvider) {
+  $httpProvider.interceptors.push('BearerAuthInterceptor');
+
   $stateProvider
     .state({
       name: "login",
-      url: "/",
+      url: "",
       templateUrl: "view/login.html",
       controller: "loginCtrl",
     })
@@ -20,6 +22,7 @@ myApp.config(function($stateProvider) {
       url: "/home",
       templateUrl: "view/home.html",
       controller: "homeCtrl",
+      onEnter: isAuthorized,
     })
     .state({
       name: "clientsHome",
@@ -28,3 +31,14 @@ myApp.config(function($stateProvider) {
       controller: "clientsHomeCtrl",
     })
 })
+
+const isAuthorized = ($state, $rootScope) => {
+  const isLogged = localStorage.getItem("token");
+
+  if (!isLogged) {
+    $state.go("login");
+    return;
+  }
+
+  $rootScope.isLogged = true;
+};

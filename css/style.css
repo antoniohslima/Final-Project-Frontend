@@ -137,6 +137,10 @@ a {
   animation: input-decrese 0.25s ease-in forwards;
 }
 
+.icons {
+  cursor: pointer;
+}
+
 /* ANIMATIONS */
 
 /* #img-animation {

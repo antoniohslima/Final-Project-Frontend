@@ -7,7 +7,8 @@
   <div class="clients-container">
     <div style="display:flex; justify-content: space-between;">
       <input class="form-control form-clients" type="text" ng-model="search" placeholder="Cliente..." style="width: 20% ;" />
-      <button class="btn btn-block" style="width: 20%; background-color: #3A99C9; color: white;">Adicionar</button>
+      <!-- <button class="btn btn-block" ng-click="principal()" style="width: 20%; background-color: black; color: white;">Voltar</button> -->
+      <button class="btn btn-block" ng-click="goToAddClients()" style="width: 11.8%; background-color: #3A99C9; color: white;">Adicionar</button>
 
     </div>
 
@@ -19,6 +20,7 @@
         <th>E-mail</th>
         <th>Idade</th>
         <th>Patrimônio</th>
+        <th>Cartões</th>
         <th></th>
         <th></th>
       </tr>
@@ -27,8 +29,9 @@
         <td>{{client.email}}</td>
         <td>{{client.age}}</td>
         <td>{{client.net_worth | currency: 'R$' : 2}}</td>
-        <td><a><i class="fa fa-pencil" aria-hidden="true"></i></i></a></td>
-        <td><a><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+        <td><a><i class="fa fa-credit-card icons" aria-hidden="true"></i></a></td>
+        <td><a><i class="fa fa-pencil icons" aria-hidden="true"></i></a></td>
+        <td><a><i class="fa fa-trash-o icons" aria-hidden="true"></i></a></td>
       </tr>
     </table>
 

@@ -30,6 +30,12 @@ myApp.config(function($stateProvider, $httpProvider) {
       templateUrl: "view/clientsHome.html",
       controller: "clientsHomeCtrl",
     })
+    .state({
+      name: "clients-add",
+      url: "/clients-add",
+      templateUrl: "view/clients-add.html",
+      controller: "clients-addCtrl",
+    })
 })
 
 const isAuthorized = ($state, $rootScope) => {

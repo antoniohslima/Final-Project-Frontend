@@ -1,3 +1,3 @@
-myApp.controller("homeCtrl", ['$scope', "HomeService", "$state", function($scope, HomeService, $state) {
-  
-}]);
+myApp.service("HomeService", function($http) {
+  // this.getToken = (data) =>  $http.post(`${baseUrl}login/`, data);
+});

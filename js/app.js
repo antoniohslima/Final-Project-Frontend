@@ -21,4 +21,10 @@ myApp.config(function($stateProvider) {
       templateUrl: "view/home.html",
       controller: "homeCtrl",
     })
+    .state({
+      name: "clientsHome",
+      url: "/clientsHome",
+      templateUrl: "view/clientsHome.html",
+      controller: "clientsHomeCtrl",
+    })
 })

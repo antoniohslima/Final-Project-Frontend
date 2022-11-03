@@ -119,4 +119,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: .2s;
+}
+
+.home-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }

@@ -12,7 +12,7 @@ myApp.controller("newManagerCtrl", ['$scope', "ManagerService", "$state", functi
     return ManagerService.create($scope.managerData)
     .then(() => {
       $scope.err = false;
-      $state.go('login')
+      $state.go('login');
     })
     .catch(() => {
       $scope.err = true;

@@ -3,10 +3,18 @@
 /* amarelo #FAAC01 */
 /* verde #FAAC01 */
 /* rosa #F26C60 */
-/* preto 1F1F21 */
+/* preto #1F1F21 */
 
 #welcome {
   margin-top: -40px;
+}
+
+a {
+  color: #1F1F21 ;
+}
+
+a:hover {
+  color: #1F1F21;
 }
 
 .jumbotron {
@@ -60,9 +68,6 @@
   margin-right: auto;
 }
 
-a {
-  color: #1F1F21 ;
-}
 
 /* Sing Up */
 

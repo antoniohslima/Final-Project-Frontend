@@ -1,9 +1,22 @@
 <div style="background-color: white; height:100vh">
   <div style="background-color: #1F1F21; display:flex; justify-content: center;">
-    <img style="width:40px" src="../assets/img/wallet_without_black.png"/>
+    <a ui-sref="home"><img style="width:50px" src="../assets/img/wallet_without_black.png"/></a>
   </div>
-  <h1 style="text-align: center;">Gerenciamento Clientes</h1>
-  <hr>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 5vh 0 5vh;">
+    <div style="align-items: center;">
+      <a ui-sref="home">
+        <i  class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <h1 style="text-align: center;">Gerenciamento Clientes</h1>
+    <a ui-sref="login">
+      <i class="fa fa-sign-out fa-2x" aria-hidden="true" style="background-color:white;"></i>
+    </a>
+  </div>
+
+  <hr style="margin-top: -3px;">
+
   <div class="clients-container">
     <div style="display:flex; justify-content: space-between;">
       <input class="form-control form-clients" type="text" ng-model="search" placeholder="Cliente..." style="width: 20% ;" />
@@ -14,7 +27,7 @@
 
     <hr>
   
-    <table ng-show="allClients.length > 0" class="table table-bordered table-secondary ">
+    <table ng-show="allClients.length > 0" class="table table-bordered table-secondary">
       <tr>
         <th>Nome</th>
         <th>E-mail</th>
@@ -30,10 +43,9 @@
         <td>{{client.age}}</td>
         <td>{{client.net_worth | currency: 'R$' : 2}}</td>
         <td><a><i class="fa fa-credit-card icons" aria-hidden="true"></i></a></td>
-        <td><a><i class="fa fa-pencil icons" aria-hidden="true"></i></a></td>
+        <td><a><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToEdit(client.email)"></i></a></td>
         <td><a><i class="fa fa-trash-o icons" aria-hidden="true"></i></a></td>
       </tr>
     </table>
-
   </div>
 </div>

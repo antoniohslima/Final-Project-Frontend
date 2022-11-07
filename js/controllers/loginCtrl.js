@@ -4,7 +4,7 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", "$state", function($sco
     password: '',
   }
 
-  const login = () => {
+  $scope.login = () => {
     return LoginService.getToken($scope.manager)
       .then(resp => {
         localStorage.setItem("token", resp.data);
@@ -16,6 +16,12 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", "$state", function($sco
       .catch(() => {
         $scope.manager.password = '';
       }); 
-    };
-  $scope.login = login;
+  };
+  // $scope.login = login;
+
+  $scope.init = () => {
+    localStorage.clear();
+  }
+
+  $scope.init()
 }]);

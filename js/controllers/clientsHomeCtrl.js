@@ -3,7 +3,6 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", funct
     return ClientsService.getClients()
     .then((resp) => {
       $scope.allClients = resp.data;
-      console.log($scope.edit);
       })
       .catch((e) => {
        
@@ -14,9 +13,16 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", funct
     $state.go('clients-add');
   }
 
-  $scope.goToEdit = (email) => {
-    localStorage.setItem("clientEmail", email);
-    $state.go('clients-add');
+  $scope.goToEdit = (id) => {
+    localStorage.setItem("clientId", id);
+    $state.go('clients-edit');
+  }
+
+  $scope.deleteClient = (id) => {
+    return ClientsService.deleteClient(id)
+      .then((resp) => {
+        listClients()
+      })
   }
 
 

@@ -38,6 +38,13 @@ myApp.config(function($stateProvider, $httpProvider) {
       controller: "clientsAddCtrl",
       onEnter: isAuthorized,
     })
+    .state({
+      name: "clients-edit",
+      url: "/clients-edit",
+      templateUrl: "view/clients-edit.html",
+      controller: "clientsEditCtrl",
+      onEnter: isAuthorized,
+    })
 })
 
 const isAuthorized = ($state, $rootScope) => {

@@ -126,7 +126,7 @@ a:hover {
   cursor: pointer;
 }
 
-/* Clients Home */
+/* Clients */
 
 .clients-container {
   width: 90%;
@@ -144,6 +144,11 @@ a:hover {
 
 .icons {
   cursor: pointer;
+}
+
+.info {
+  color: #1F1F21;
+  margin-bottom: 10vh;
 }
 
 /* ANIMATIONS */

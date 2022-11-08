@@ -41,10 +41,10 @@
         <td>{{client.name}}</td>
         <td>{{client.email}}</td>
         <td>{{client.age}}</td>
-        <td>{{client.net_worth | currency: 'R$' : 2}}</td>
+        <td>{{client.net_worth | currency: 'R$ ' : 2}}</td>
         <td><a><i class="fa fa-credit-card icons" aria-hidden="true"></i></a></td>
-        <td><a><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToEdit(client.email)"></i></a></td>
-        <td><a><i class="fa fa-trash-o icons" aria-hidden="true"></i></a></td>
+        <td><a><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToEdit(client.id)"></i></a></td>
+        <td><a><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteClient(client.id)"></i></a></td>
       </tr>
     </table>
   </div>

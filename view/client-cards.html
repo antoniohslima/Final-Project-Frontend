@@ -1,0 +1,46 @@
+<div style="background-color: white; height:100vh">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 5vh 0 5vh;">
+    <div style="align-items: center;">
+      <a ui-sref="clientsHome">
+        <i  class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <h2>Cartões</h2>
+    <a ui-sref="login">
+      <i class="fa fa-sign-out fa-2x" aria-hidden="true" style="background-color:white;"></i>
+    </a>
+  </div>
+  
+  <hr style="margin-top: -3px;">
+  
+  <div class="clients-container">
+    <div style="display:flex; justify-content: space-between;">
+      <h3 style="text-align: center;">{{client.name}}</h3>
+      <button class="btn btn-block" ng-click="goToAddClients()" style="width: 11.8%; background-color: #4AB43A; color: white;">Novo cartão</button>
+
+    </div>
+
+    <hr>
+  
+    <table ng-show="cards.length > 0" class="table table-bordered table-secondary">
+      <tr>
+        <th>Nome impresso</th>
+        <th>Número</th>
+        <th>cvv</th>
+        <th>Data de válidade</th>
+        <th>Limite</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="card in cards | filter: {name: search} | orderBy: 'name'">
+        <td>{{card.printed_name}}</td>
+        <td>{{card.number}}</td>
+        <td>{{card.cvv}}</td>
+        <td>{{card.expiration_date}}</td>
+        <td>{{card.limit}}</td>
+        <td><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToPath(card.id, 'card-edit')"></i></td>
+        <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click=""></i></td>
+      </tr>
+    </table>
+  </div>
+</div>

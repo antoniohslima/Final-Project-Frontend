@@ -26,7 +26,7 @@ myApp.config(function($stateProvider, $httpProvider) {
     })
     .state({
       name: "clientsHome",
-      url: "/clientsHome",
+      url: "/clients-home",
       templateUrl: "view/clientsHome.html",
       controller: "clientsHomeCtrl",
       onEnter: isAuthorized,
@@ -43,6 +43,13 @@ myApp.config(function($stateProvider, $httpProvider) {
       url: "/clients-edit",
       templateUrl: "view/clients-edit.html",
       controller: "clientsEditCtrl",
+      onEnter: isAuthorized,
+    })
+    .state({
+      name: "client-cards",
+      url: "/client-cards",
+      templateUrl: "view/client-cards.html",
+      controller: "cardsManagementCtrl",
       onEnter: isAuthorized,
     })
 })

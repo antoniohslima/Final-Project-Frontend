@@ -1,4 +1,4 @@
-myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", function($scope, ClientsService, $state) {
+myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage",  function($scope, ClientsService, $state, AlertMessage) {
   const listClients = () => { 
     return ClientsService.getClients()
     .then((resp) => {
@@ -13,14 +13,30 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", funct
     $state.go('clients-add');
   }
 
-  $scope.goToEdit = (id) => {
+  $scope.goToPath = (id, path) => {
     localStorage.setItem("clientId", id);
-    $state.go('clients-edit');
+    $state.go(path);
   }
 
-  $scope.deleteClient = (id) => {
-    return ClientsService.deleteClient(id)
-      .then((resp) => {
+  $scope.deleteClient = async (id) => {
+    const confirmation = await Swal.fire({
+      title: "Deseja realmente excluir esse cliente?",
+      showCancelButton: true,
+      confirmButtonText: "Excluir",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+
+    if (confirmation.isConfirmed) {
+      AlertMessage.success("Usuário excluido!")
+    }
+    
+    if (!confirmation.isConfirmed) {
+      return;
+    }
+
+    ClientsService.deleteClient(id)
+      .then(() => {
         listClients()
       })
   }

@@ -1,8 +1,4 @@
 <div style="background-color: white; height:100vh">
-  <div style="background-color: #1F1F21; display:flex; justify-content: center;">
-    <a ui-sref="home"><img style="width:50px" src="../assets/img/wallet_without_black.png"/></a>
-  </div>
-
   <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 5vh 0 5vh;">
     <div style="align-items: center;">
       <a ui-sref="home">
@@ -37,14 +33,14 @@
         <th></th>
         <th></th>
       </tr>
-      <tr ng-repeat="client in allClients | filter: {name: search}">
+      <tr ng-repeat="client in allClients | filter: {name: search} | orderBy: 'name'">
         <td>{{client.name}}</td>
         <td>{{client.email}}</td>
         <td>{{client.age}}</td>
         <td>{{client.net_worth | currency: 'R$ ' : 2}}</td>
-        <td><a><i class="fa fa-credit-card icons" aria-hidden="true"></i></a></td>
-        <td><a><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToEdit(client.id)"></i></a></td>
-        <td><a><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteClient(client.id)"></i></a></td>
+        <td><i class="fa fa-credit-card icons" aria-hidden="true" ng-click="goToPath(client.id, 'client-cards')"></i></td>
+        <td><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToPath(client.id, 'clients-edit')"></i></td>
+        <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteClient(client.id)"></i></td>
       </tr>
     </table>
   </div>

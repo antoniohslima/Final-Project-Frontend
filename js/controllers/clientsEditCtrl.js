@@ -16,7 +16,7 @@ myApp.controller("clientsEditCtrl", ['$scope', "ClientsService", "$state", funct
   $scope.showClient = () => {
     return ClientsService.showClient($scope.clientId)
       .then(resp => {
-        $scope.clientInfo = resp.data;
+        $scope.updateInfo = resp.data;
       })
   }
 

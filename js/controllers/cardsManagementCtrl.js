@@ -1,4 +1,7 @@
 myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCardService", "$state", function($scope, ClientsService, ClientsCardService, $state) {
+  // const name = document.getElementById('x');
+
+  
   $scope.goToPath = (id, path) => {
     localStorage.setItem("cardId", id);
     $state.go(path);
@@ -9,6 +12,7 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
       .then(resp => {
         console.log(resp);
         $scope.client = resp.data;
+        // console.log(name);
       })
       .catch((e) => {
       })
@@ -23,6 +27,6 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
 
   $scope.clientId = localStorage.getItem('clientId');
   $scope.showClient($scope.clientId);
-  $scope.listAllCards($scope.clientId)
+  $scope.listAllCards($scope.clientId);
 
 }]);

@@ -6,8 +6,8 @@
       </a>
     </div>
     <h2>Cartões</h2>
-    <a ui-sref="login">
-      <i class="fa fa-sign-out fa-2x" aria-hidden="true" style="background-color:white;"></i>
+    <a ui-sref="home">
+      <i class="fa fa-home fa-2x" aria-hidden="true" style="background-color:white;"></i>
     </a>
   </div>
   
@@ -15,7 +15,7 @@
   
   <div class="clients-container">
     <div style="display:flex; justify-content: space-between;">
-      <h3 style="text-align: center;">{{client.name}}</h3>
+      <h3 style="text-align: center;" id="x">{{client.name}}</h3>
       <button class="btn btn-block" ng-click="goToAddClients()" style="width: 11.8%; background-color: #4AB43A; color: white;">Novo cartão</button>
 
     </div>
@@ -29,16 +29,16 @@
         <th>cvv</th>
         <th>Data de válidade</th>
         <th>Limite</th>
-        <th></th>
+        <th>Visualizar</th>
         <th></th>
       </tr>
       <tr ng-repeat="card in cards | filter: {name: search} | orderBy: 'name'">
         <td>{{card.printed_name}}</td>
         <td>{{card.number}}</td>
         <td>{{card.cvv}}</td>
-        <td>{{card.expiration_date}}</td>
-        <td>{{card.limit}}</td>
-        <td><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToPath(card.id, 'card-edit')"></i></td>
+        <td>{{card.expiration_date | date: 'MM/yyyy'}}</td>
+        <td>{{card.limit | currency: 'R$ ': 2}}</td>
+        <td><i class="fa fa-eye icons" aria-hidden="true" ng-click="goToPath(card.id, 'card-visualization')"></i></td>
         <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click=""></i></td>
       </tr>
     </table>

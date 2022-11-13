@@ -52,6 +52,13 @@ myApp.config(function($stateProvider, $httpProvider) {
       controller: "cardsManagementCtrl",
       onEnter: isAuthorized,
     })
+    .state({
+      name: "card-visualization",
+      url: "/card-visualization",
+      templateUrl: "view/card-visualization.html",
+      controller: "cardVisualizationCtrl",
+      onEnter: isAuthorized,
+    })
 })
 
 const isAuthorized = ($state, $rootScope) => {

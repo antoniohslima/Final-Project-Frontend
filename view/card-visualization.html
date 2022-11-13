@@ -1,0 +1,28 @@
+<div style="height:100vh; background-color: #DAD6CD; display: flex; justify-content: center; flex-direction: column; gap: 10vh;">
+
+  <div style="display: flex;">
+    <div id="card-container" class="card" style="justify-content: space-between;">
+      <h3 style="margin-left: 4vh; margin-top: 2vh;">{{card.type}}</h3>
+      <div style="margin-left: 4vh;">
+        <img src="../assets/img/chip.png" alt="" class="chip">
+      </div>
+      <div style="margin-left: 5vh;">
+        <h2>{{card.number}}</h2>
+      </div>
+      <div style="margin-left: 60vh; text-align: center;" >
+        <h5>Valid Thru: {{card.expiration_date | date: 'MM/yy'}}</h5>
+      </div>
+      <h5 style="margin-left: 5vh; margin-bottom: 3vh;">{{card.printed_name}}</h5>
+    </div>
+    <div id="card-container-back" class="card">
+      <div style="height: 10vh; background-color:black; margin-top:6vh;"></div>
+      <div style="height: 6.5vh; width: 60%; background-color: #879486b6; margin: 3vh 40%; transform: scaleX(-1);">
+        <h3 style="text-align: right; margin-right: 5%;">{{card.cvv}}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div >
+   <a ui-sref="client-cards" style="color:#DAD6CD"> <button class="btn btn-dark btn-block login-btn" style="height: 7vh; width: 20vh; margin: auto;">Voltar</button></a>
+  </div>
+</div>

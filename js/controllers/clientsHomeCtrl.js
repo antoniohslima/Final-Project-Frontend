@@ -1,11 +1,14 @@
 myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage",  function($scope, ClientsService, $state, AlertMessage) {
-  $scope.goToLogin = async () => {
+  $scope.logOut = async () => {
     const confirmation = await Swal.fire({
-      title: "Deseja realmente sair da sua conta?",
+      title: 'Tem certeza que dejesa sair?',
+      text: "Você será desconectado de sua conta!",
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: "Sair",
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sair',
       cancelButtonText: "Cancelar",
-      reverseButtons: true,
     });
 
     if (!confirmation.isConfirmed) {
@@ -36,11 +39,14 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
 
   $scope.deleteClient = async (id) => {
     const confirmation = await Swal.fire({
-      title: "Deseja realmente excluir esse cliente?",
+      title: 'Tem certeza que dejesa excluir esse cliente?',
+      text: "Os dados desse cliente serão apagados!",
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: "Excluir",
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Excluir',
       cancelButtonText: "Cancelar",
-      reverseButtons: true,
     });
 
     if (confirmation.isConfirmed) {

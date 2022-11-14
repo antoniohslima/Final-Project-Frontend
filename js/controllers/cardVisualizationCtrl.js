@@ -28,14 +28,17 @@ myApp.controller("cardVisualizationCtrl", ['$scope', "ClientsService", "ClientsC
         else if ($scope.card.limit == 50000){
           $scope.card.type = 'Platinum';
           cardHTML.classList.add('platinum');
+          cardBackHTML.classList.add('platinum-back');
         }
         else if ($scope.card.limit == 200000){
           $scope.card.type = 'Black';
           cardHTML.classList.add('black');
+          cardBackHTML.classList.add('black-back');
         }
         else {
           $scope.card.type = 'Full';
           cardHTML.classList.add('full');
+          cardBackHTML.classList.add('full-back');
         }
 
       })

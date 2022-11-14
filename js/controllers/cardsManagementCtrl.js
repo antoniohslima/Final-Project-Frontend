@@ -29,11 +29,14 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
 
   $scope.deleteCard = async (cardId, clientId) => {
     const confirmation = await Swal.fire({
-      title: "Deseja realmente excluir esse cartão?",
+      title: 'Tem certeza que dejesa excluir esse cartão?',
+      text: "Os dados desse cartão serão apagados!",
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: "Excluir",
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Excluir',
       cancelButtonText: "Cancelar",
-      reverseButtons: true,
     });
 
     if (confirmation.isConfirmed) {
@@ -53,5 +56,4 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
 
   $scope.showClient($scope.clientId);
   $scope.listAllCards($scope.clientId);
-
 }]);

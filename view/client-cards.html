@@ -37,7 +37,8 @@
         <td>{{card.number}}</td>
         <td>{{card.cvv}}</td>
         <td>{{card.expiration_date | date: 'MM/yyyy'}}</td>
-        <td>{{card.limit | currency: 'R$ ': 2}}</td>
+        <td ng-if="card.limit">{{card.limit | currency: 'R$ ': 2 }}</td>
+        <td ng-if="!card.limit">Ilimitado</td>
         <td><i class="fa fa-eye icons" aria-hidden="true" ng-click="goToPath(card.id, 'card-visualization')"></i></td>
         <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteCard(card.id, clientId)"></i></td>
       </tr>

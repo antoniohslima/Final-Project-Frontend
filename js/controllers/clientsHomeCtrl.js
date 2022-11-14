@@ -1,4 +1,20 @@
 myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage",  function($scope, ClientsService, $state, AlertMessage) {
+  $scope.goToLogin = async () => {
+    const confirmation = await Swal.fire({
+      title: "Deseja realmente sair da sua conta?",
+      showCancelButton: true,
+      confirmButtonText: "Sair",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+
+    if (!confirmation.isConfirmed) {
+      return;
+    }
+
+    $state.go('login');
+  }
+
   const listClients = () => { 
     return ClientsService.getClients()
     .then((resp) => {

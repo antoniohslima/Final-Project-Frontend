@@ -1,6 +1,9 @@
-myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCardService", "$state", function($scope, ClientsService, ClientsCardService, $state) {
-  // const name = document.getElementById('x');
+myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCardService", "AlertMessage", "$state", function($scope, ClientsService, ClientsCardService, AlertMessage, $state) {
+  $scope.clientId = localStorage.getItem('clientId');
 
+  $scope.goToCreateCard = () => {
+    $state.go('card-create');
+  }
   
   $scope.goToPath = (id, path) => {
     localStorage.setItem("cardId", id);
@@ -10,7 +13,6 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
   $scope.showClient = (id) => {
     return ClientsService.showClient(id)
       .then(resp => {
-        console.log(resp);
         $scope.client = resp.data;
         // console.log(name);
       })
@@ -25,7 +27,30 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
       })
   }
 
-  $scope.clientId = localStorage.getItem('clientId');
+  $scope.deleteCard = async (cardId, clientId) => {
+    const confirmation = await Swal.fire({
+      title: "Deseja realmente excluir esse cartão?",
+      showCancelButton: true,
+      confirmButtonText: "Excluir",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+
+    if (confirmation.isConfirmed) {
+      AlertMessage.success("Cartão excluido!")
+    }
+    
+    if (!confirmation.isConfirmed) {
+      return;
+    }
+
+    return ClientsCardService.deleteCard(cardId, clientId)
+      .then(resp => {
+        console.log(resp.data);
+        $scope.listAllCards(clientId);
+      })
+  }
+
   $scope.showClient($scope.clientId);
   $scope.listAllCards($scope.clientId);
 

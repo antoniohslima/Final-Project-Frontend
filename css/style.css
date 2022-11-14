@@ -180,14 +180,26 @@ a:hover {
   background-image: url('https://t3.ftcdn.net/jpg/05/08/92/24/360_F_508922418_G2GsexjzMh6NVBxjiy51DDCiU1KzL3v7.jpg');
   color: #DAD6CD;
 }
+.black-back {
+  background-image: url('https://t3.ftcdn.net/jpg/05/08/92/24/360_F_508922418_G2GsexjzMh6NVBxjiy51DDCiU1KzL3v7.jpg');
+  transform: scaleX(-1);
+}
 
 .platinum {
   background-image: url('https://static.vecteezy.com/system/resources/previews/003/552/079/original/platinum-silver-modern-abstract-background-luxury-silver-metal-background-free-vector.jpg');
+}
+.platinum-back {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/003/552/079/original/platinum-silver-modern-abstract-background-luxury-silver-metal-background-free-vector.jpg');
+  transform: scaleX(-1);
 }
 
 .full {
   background-image: url('https://img.freepik.com/premium-photo/paper-cut-style-design-modern-dynamic-blue-color-wave-style-wallpaper-advertising-background_551880-951.jpg');
   color: #DAD6CD;
+}
+.full-back {
+  background-image: url('https://img.freepik.com/premium-photo/paper-cut-style-design-modern-dynamic-blue-color-wave-style-wallpaper-advertising-background_551880-951.jpg');
+  transform: scaleX(-1);
 }
 
 /* ANIMATIONS */

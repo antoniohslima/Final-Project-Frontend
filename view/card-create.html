@@ -1,0 +1,60 @@
+<div style="background-color: #DAD6CD ; height:100vh; display: flex;">
+  <div style="background-color: #1F1F21; width: 40%; height: 100%;">
+    <div style="padding-top: 2vh; padding-left: 2vh;">
+      <a ui-sref="client-cards">
+        <i style="color: #DAD6CD;" class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div style="margin-top: 8vh">
+      <form class="jumbotron" style="background-color: white; margin: auto; width: 60vh;">
+        <div style="margin: -40px auto -40px auto; ">
+            <h2 style="margin-bottom:30px; text-align: center;">Preencha abaixo</h2>
+            <hr>
+            <div class="login-container-form-item">
+                <label for="name">Nome impresso</label>
+                <input class="form-control" type="text" ng-model="card.printed_name" ng-required="true" placeholder=""/>
+            </div>
+            <div class="login-container-form-item"> 
+                <label for="network">Operadora</label>
+                <select class="form-control" ng-model="network" ng-options="network.name for network in networks" ng-required="true" ">
+                  <option value="">Selecione uma operadora</option>
+                </select>
+            </div>
+            <div class="login-container-form-item"> 
+                <label for="expiration_date">Data de validade</label>
+                <input class="form-control" type="date" ng-required="true" ng-model="card.expiration_date" min="{{minDate}}" max="{{maxDate}}"/>
+            </div>
+            <!-- <div ng-show="!check" class="alert alert-danger login-container-form-item" style="text-align: center; margin-bottom: -15px;">
+              Dados inválidos
+            </div> -->
+            <div class="login-container-form-item">
+                <button class="btn btn-dark btn-block login-btn" ng-click="submitCard(card, network)" ng-disabled="">Criar</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div style="align-items: center; width: 60%; display: flex; flex-direction: column;">
+    <div id="card-container" class="card" style="justify-content: space-between; transform: scale(0.9);">
+      <h3 style="margin-left: 4vh; margin-top: 2vh;">{{type}}</h3>
+      <div style="margin-left: 4vh;">
+        <img src="../assets/img/chip.png" alt="" class="chip">
+      </div>
+      <div style="margin-left: 5vh;">
+        <h3>**** **** **** ****</h3>
+      </div>
+      <div style="margin-left: 60vh; text-align: center;" >
+        <h5>Valid Thru: {{card.expiration_date | date: 'MM/yy'}}</h5>
+      </div>
+      <h4 style="margin-left: 5vh; margin-bottom: 3vh;">{{card.printed_name}}</h4>
+    </div>
+    <div id="card-container-back" class="card" style=" transform: scale(0.9);">
+      <div style="height: 10vh; background-color:black; margin-top:6vh;"></div>
+      <div style="height: 6.5vh; width: 60%; background-color: #879486b6; margin: 3vh 0;">
+        <h3 style="text-align: right;">cvv</h3>
+      </div>
+    </div>
+  </div>
+
+</div>

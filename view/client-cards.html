@@ -16,7 +16,7 @@
   <div class="clients-container">
     <div style="display:flex; justify-content: space-between;">
       <h3 style="text-align: center;" id="x">{{client.name}}</h3>
-      <button class="btn btn-block" ng-click="goToCreateCard()" style="width: 11.8%; background-color: #4AB43A; color: white;">Novo cartão</button>
+      <button class="btn btn-block" ng-click="goToCreateCard(client.CardType)" style="width: 11.8%; background-color: #4AB43A; color: white;">Novo cartão</button>
 
     </div>
 
@@ -27,7 +27,7 @@
         <th>Nome impresso</th>
         <th>Número</th>
         <th>cvv</th>
-        <th>Data de válidade</th>
+        <th>Data de validade</th>
         <th>Limite</th>
         <th>Visualizar</th>
         <th></th>
@@ -39,7 +39,7 @@
         <td>{{card.expiration_date | date: 'MM/yyyy'}}</td>
         <td ng-if="card.limit">{{card.limit | currency: 'R$ ': 2 }}</td>
         <td ng-if="!card.limit">Ilimitado</td>
-        <td><i class="fa fa-eye icons" aria-hidden="true" ng-click="goToPath(card.id, 'card-visualization')"></i></td>
+        <td><i class="fa fa-eye icons" aria-hidden="true" ng-click="goToPath(card.id, 'card-visualization', card.card_id)"></i></td>
         <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteCard(card.id, clientId)"></i></td>
       </tr>
     </table>

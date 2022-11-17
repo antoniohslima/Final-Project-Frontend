@@ -59,13 +59,16 @@ a:hover {
 .header-img {
   max-height: 200px;
   max-width: auto;
-  margin-top: 13%;
   display: block;
 }
 
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.networks-login {
+  width: 10vh;
 }
 
 
@@ -166,41 +169,42 @@ a:hover {
   height: auto;
 }
 
-.gold {
+.Gold {
   background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm218batch8-mynt-22.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=b97d2d2a2a555f2257a484df94a458af');
 }
 
-.gold-back {
+.Gold-back {
   background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm218batch8-mynt-22.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=b97d2d2a2a555f2257a484df94a458af');
   transform: scaleX(-1);
 }
 
 
-.black {
+.Black {
   background-image: url('https://t3.ftcdn.net/jpg/05/08/92/24/360_F_508922418_G2GsexjzMh6NVBxjiy51DDCiU1KzL3v7.jpg');
   color: #DAD6CD;
 }
-.black-back {
+.Black-back {
   background-image: url('https://t3.ftcdn.net/jpg/05/08/92/24/360_F_508922418_G2GsexjzMh6NVBxjiy51DDCiU1KzL3v7.jpg');
   transform: scaleX(-1);
 }
 
-.platinum {
+.Platinum {
   background-image: url('https://static.vecteezy.com/system/resources/previews/003/552/079/original/platinum-silver-modern-abstract-background-luxury-silver-metal-background-free-vector.jpg');
 }
-.platinum-back {
+.Platinum-back {
   background-image: url('https://static.vecteezy.com/system/resources/previews/003/552/079/original/platinum-silver-modern-abstract-background-luxury-silver-metal-background-free-vector.jpg');
   transform: scaleX(-1);
 }
 
-.full {
+.Full {
   background-image: url('https://img.freepik.com/premium-photo/paper-cut-style-design-modern-dynamic-blue-color-wave-style-wallpaper-advertising-background_551880-951.jpg');
   color: #DAD6CD;
 }
-.full-back {
+.Full-back {
   background-image: url('https://img.freepik.com/premium-photo/paper-cut-style-design-modern-dynamic-blue-color-wave-style-wallpaper-advertising-background_551880-951.jpg');
   transform: scaleX(-1);
 }
+
 
 /* ANIMATIONS */
 

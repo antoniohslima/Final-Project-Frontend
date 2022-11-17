@@ -1,24 +1,16 @@
 myApp.controller("homeCtrl", ['$scope', "ManagerService", "$state", function($scope, ManagerService, $state) {
-  const goToClientsPage = () => {
+  $scope.goToClientsPage = () => {
     $state.go('clientsHome');
   }
 
   const init = () => {
-    ManagerService.show()
-      .then((resp)=> {
-        console.log(resp.data)
+    return ManagerService.show()
+      .then( resp => {
+        $scope.manager = resp.data;
       })
       .catch((e) => {
         console.log(e);
       })
   }
-
-  const showManager = () => {
-    
-  }
-
-  showManager();
   init();
-
-  $scope.goToClientsPage = goToClientsPage;
 }]);

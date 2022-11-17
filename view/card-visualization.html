@@ -1,18 +1,21 @@
 <div style="height:100vh; background-color: #DAD6CD; display: flex; justify-content: center; flex-direction: column; gap: 10vh;">
 
   <div style="display: flex;">
-    <div id="card-container" class="card" style="justify-content: space-between;">
-      <h3 style="margin-left: 4vh; margin-top: 2vh;">{{card.type}}</h3>
+    <div id="card-container" class="card">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin: -10px 4vh 0 4vh; height: min-content;">
+        <h3 >{{type}}</h3>
+        <img src="{{link}}" style="width:14vh;" alt="">
+      </div>
       <div style="margin-left: 4vh;">
         <img src="../assets/img/chip.png" alt="" class="chip">
       </div>
-      <div style="margin-left: 5vh;">
+      <div style="margin-left: 5vh; margin-top: 2vh;">
         <h2>{{card.number}}</h2>
       </div>
-      <div style="margin-left: 60vh; text-align: center;" >
+      <div style="margin-left: 64vh; text-align: center; max-width: 14.9vh;" >
         <h5>Valid Thru: {{card.expiration_date | date: 'MM/yy'}}</h5>
       </div>
-      <h4 style="margin-left: 5vh; margin-bottom: 3vh;">{{card.printed_name}}</h4>
+      <h4 style="margin-left: 5vh; margin-bottom: 5vh;">{{card.printed_name}}</h4>
     </div>
     <div id="card-container-back" class="card">
       <div style="height: 10vh; background-color:black; margin-top:6vh;"></div>
@@ -22,7 +25,7 @@
     </div>
   </div>
 
-  <div >
-   <a ui-sref="client-cards" style="color:#DAD6CD"> <button class="btn btn-dark btn-block login-btn" style="height: 7vh; width: 20vh; margin: auto;">Voltar</button></a>
+  <div style="width: min-content; margin: 0 auto 0 auto;">
+   <a ui-sref="client-cards" style="color:#DAD6CD;"> <button class="btn btn-dark btn-block login-btn" style="height: 7vh; width: 20vh; margin: auto;">Voltar</button></a>
   </div>
 </div>

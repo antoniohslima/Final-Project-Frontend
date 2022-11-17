@@ -13,7 +13,18 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", "$state", function($sco
         $scope.manager.password = '';
         $state.go('home');
       })
-      .catch(() => {
+      .catch(async () => {
+        const confirmation = await Swal.fire({
+          title: 'Algo deu errado',
+          text: "Verifique as suas informações!",
+          icon: 'error',
+          confirmButtonColor: '#1F1F21',
+        });
+        
+        if (!confirmation.isConfirmed) {
+          return;
+        }
+
         $scope.manager.password = '';
       }); 
   };

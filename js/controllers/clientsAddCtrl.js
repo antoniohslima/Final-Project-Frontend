@@ -7,7 +7,7 @@ myApp.controller("clientsAddCtrl", ['$scope', "ClientsService", "AlertMessage", 
         AlertMessage.success('Cliente criado comsucesso.');
         $state.go('clientsHome');
       })
-      .catch(() => {
+      .catch((err) => {
         AlertMessage.error('Algo deu errado, por favor reveja os dados inseridos.');
       }); 
   };

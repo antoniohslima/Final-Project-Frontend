@@ -1,6 +1,13 @@
 myApp.controller("clientVisualizationCtrl", ['$scope', "$state",  "ClientsService", "ClientsCardService", "CardService", "AlertMessage", function($scope, $state, ClientsService, ClientsCardService, CardService, AlertMessage) {
   const clientId = localStorage.getItem('clientId');
   $scope.atualCardType = localStorage.getItem('cardType');
+
+  $scope.goToCardVisualization = (cardId, card_id) => {
+    localStorage.setItem('cardId', cardId);
+    localStorage.setItem('card_id_network', card_id);
+
+    $state.go('card-visualization');
+  }
   
   $scope.delClient = async () => {
     const confirmation = await Swal.fire({
@@ -54,7 +61,6 @@ myApp.controller("clientVisualizationCtrl", ['$scope', "$state",  "ClientsServic
           CardService.getNetworkId(element.card_id)
             .then(resp => {
               element.type = resp.data.type;
-              console.log(resp.data);
             })
           
         });

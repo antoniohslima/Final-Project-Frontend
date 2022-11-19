@@ -37,7 +37,7 @@
       <h5 style="text-align: center;">Alguns de seus cartões</h5>
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item" ng-repeat="card in cards | limitTo: 3 ">
-          <div class="card {{card.type}}" style="width: 270px; height: 150px; margin: 4vh" id="{{card.id}}">
+          <div class="card {{card.type}}" style="width: 270px; height: 150px; margin: 4vh; cursor: pointer;" id="{{card.id}}" ng-click="goToCardVisualization(card.id, card.card_id)">
             <h5 style="margin-left: 3vh;">{{card.type}}</h5>
             <div style="margin: 0 auto 4.5vh 2vh;">
               <img src="../assets/img/chip.png" alt="" class="chip" style=" width: 8vh;">

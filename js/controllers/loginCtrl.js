@@ -14,6 +14,7 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", "$state", function($sco
         $state.go('home');
       })
       .catch(async () => {
+        $scope.manager.password = '';
         const confirmation = await Swal.fire({
           title: 'Algo deu errado',
           text: "Verifique as suas informações!",
@@ -25,14 +26,18 @@ myApp.controller("loginCtrl", ['$scope', "LoginService", "$state", function($sco
           return;
         }
 
-        $scope.manager.password = '';
       }); 
   };
-  // $scope.login = login;
-
+  
   $scope.init = () => {
-    localStorage.clear();
+    const token = localStorage.getItem('token');
+
+    if(token) {
+      $state.go('home');
+      return
+    }
   }
 
-  $scope.init()
-}]);
+  $scope.init();
+  
+  }]);

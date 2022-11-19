@@ -6,8 +6,6 @@ myApp.controller("cardVisualizationCtrl", ['$scope', "ClientsCardService", "Netw
   const cardHTML = document.getElementById('card-container');
   const cardBackHTML = document.getElementById('card-container-back');
   
-  $scope.type = localStorage.getItem('cardType');
-  
   $scope.setCardStyle = (type) => {
     cardHTML.classList.add(`${type}`);
     cardBackHTML.classList.add(`${type}-back`);
@@ -27,7 +25,9 @@ myApp.controller("cardVisualizationCtrl", ['$scope', "ClientsCardService", "Netw
       return CardService.getNetworkId(card_id)
       .then(resp => {
         $scope.networkId = resp.data.network_id;
+        $scope.type = resp.data.type;
         
+        $scope.setCardStyle($scope.type);
         $scope.getNetworkName($scope.networkId);
       })
     }
@@ -50,8 +50,6 @@ myApp.controller("cardVisualizationCtrl", ['$scope', "ClientsCardService", "Netw
     })
   }
   
-  // $scope.setCardStyle($scope.type, $scope.networkName);
-  $scope.setCardStyle($scope.type);
   $scope.getNetworkId(card_id);
   $scope.getCardInfo(clientId, cardId);
   

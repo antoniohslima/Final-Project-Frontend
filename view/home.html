@@ -1,31 +1,57 @@
-<div style="width: 100%; height:100vh; display: flex; flex-direction: column; background-color: #DAD6CD;">
-  <div style="width: 100%; height: 10vh; background-color: #1F1F21; color: #DAD6CD; display: flex; flex-direction: row; justify-content: space-between
-  ;">
-    <h2>Olá, {{manager.name}}</h2>
-    <img id="img-animation" style=" height: 10vh;" src="../assets/img/wallet_without_black.png"/> 
-    <a ui-sref="" style="color: #DAD6CD;">Sua conta</a>
-  </div>
-  
-  <div>
-    <div class="home-card" style="background-color: #3A99C9;" ng-click="goToClientsPage()">
-      <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-      <h2>Clientes</h2>
-    </div>
-    <div class="home-card" style="background-color: #4AB43A;">
-      <i class="fa fa-credit-card-alt fa-5x" aria-hidden="true"></i>
-      <h2>Cartões</h2>
-    </div>
-  </div>
+<div style="width: 100%; height:100vh; display: flex; flex-direction: column; background-color: white;">
+  <nav class="navbar navbar-light bg-dark" >
+    <a class="navbar-brand" style="display: flex; gap: 3vh; cursor: default;">
+      <img src="../assets/img/wallet_without_black.png" width="50" class="d-inline-block align-top" alt="">
+      <h1 style="margin: auto; color: white;">CarteiraTop</h1>
+    </a>
 
+    <!-- <div>
+      <div class="navbar-nav" style="display: flex; flex-direction:row; gap: 10vh; font-size: xx-large; margin-left: -60vh;">
+        <a style="color: white;" class="nav-link active" ui-sref="clientsHome">Clientes</a>
+      </div>
+    </div> -->
+
+    <a>
+      <i class="fa fa-sign-out fa-2x icons" aria-hidden="true" style="color:white;" ng-click="logOut()"></i>
+    </a>
+  </nav>
   
-  <!-- <div class="home-containers" style="margin-top: -150px;">
-    <div class="home-card" style="background-color: #FAAC01;">
-      <i class="fa fa-money fa-5x" aria-hidden="true"></i>
-      <h2>Análise de crédito</h2>
+  <div style="display: flex; flex-direction:row; justify-content: space-between; ">
+    <div style="margin: 1vh auto auto 2vh;">
+      <h2> Olá, {{manager.name}}</h2>
+      <hr>
+      <a ui-sref="clientsHome">
+        <div class="home-card" style="background-color: #3A99C9; margin: 0; width: 40vh; height: 100%; text-align: center; color: white;">
+          <h2>Gerenciamento de Clientes</h2>
+        </div>
+      </a>
+
     </div>
-    <div class="home-card" style="background-color: #F26C60;">
-      <i class="fa fa-question fa-5x" aria-hidden="true"></i>
-      <h2>??????</h2>
+    
+    <div style="margin: 0 auto ;">
+      <h4 style="margin: 10vh auto auto 0;">Principais clientes: </h4>
+      <ul class="list-group">
+        <li ng-repeat="client in clients | orderBy: 'net_worth' : true | limitTo: 8" ng-click="goToClientPage(client.id)"
+          class="list-group-item d-flex justify-content-between align-items-center client-home" style="width: 70vh; margin: auto;">
+          {{client.name}}
+          <span class="badge badge-pill" style="background-color: #3A99C9; color: white;">
+            <i class="fa fa-credit-card" aria-hidden="true"></i>
+            {{client.numberOfCards}}
+          </span>
+        </li>
+   
+      </ul>
     </div>
-  </div> -->
+
+    <div>
+      <div class="home-card" >
+        <img class="network-card" src="../assets/img/VISA.png" alt="">
+      </div>
+      <div class="home-card" >
+        <img class="network-card" style="margin: auto; height: 30vh;" src="../assets/img/logo-mastercard-name.png" alt="">
+      </div>
+      <div class="home-card" style="height:25vh;" >
+        <img class="network-card" src="../assets/img/ELO.png" alt="">
+      </div>
+    </div>
 </div>

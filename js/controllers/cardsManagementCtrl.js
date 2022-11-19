@@ -25,12 +25,12 @@ myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCar
   $scope.listAllCards = (id) => {
     return ClientsCardService.getClientCards(id)
       .then(resp => {
-        $scope.cards = resp.data;
+        $scope.cards = resp.data.cards;
 
       })
     }
     
-    $scope.deleteCard = async (cardId, clientId) => {
+  $scope.deleteCard = async (cardId, clientId) => {
     const confirmation = await Swal.fire({
       title: 'Tem certeza que dejesa excluir esse cartão?',
       text: "Os dados desse cartão serão apagados!",

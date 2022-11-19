@@ -11,10 +11,12 @@
 
 a {
   color: #1F1F21 ;
+  cursor: pointer;
 }
 
 a:hover {
   color: #1F1F21;
+  text-decoration: none;
 }
 
 .jumbotron {
@@ -111,21 +113,31 @@ a:hover {
 }
 
 .home-card {
-  margin: 10px 0 10px 0;
-  width: 450px;
-  height: 250px;
   border-radius: 18px; 
-  text-align: center;
-  font-size: large;
-  font-weight: bolder;
+  margin: 0 5vh 0 0;
+  width: 45vh;
+  height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* .network-card {
   transition: .2s;
 }
 
-.home-card:hover {
+.network-card:hover {
   transform: scale(1.1);
+} */
+
+.client-home {
+  transition: .15s;
+  text-overflow: ellipsis;
+}
+
+.client-home:hover {
+  color: #3A99C9;
+  transform: scale(1.02);
   cursor: pointer;
 }
 

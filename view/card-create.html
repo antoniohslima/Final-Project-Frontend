@@ -6,13 +6,14 @@
       </a>
     </div>
     <div style="margin-top: 8vh">
-      <form class="jumbotron" style="background-color: white; margin: auto; width: 60vh;">
+      <form class="jumbotron" style="background-color: white; margin: auto; width: 60vh;" name="cardForm">
         <div style="margin: -40px auto -40px auto; ">
             <h2 style="margin-bottom:30px; text-align: center;">Preencha abaixo</h2>
             <hr>
             <div class="login-container-form-item">
                 <label for="name">Nome impresso</label>
-                <input class="form-control" type="text" ng-model="card.printed_name" ng-required="true" ng-minlength="3" ng-maxlength="25" placeholder=""/>
+                <input class="form-control" type="text" ng-model="card.printed_name" ng-required="true" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z]+$/" name="printed_name"/>
+                <h6 style="color:red; font-size: small;" ng-show="cardForm.printed_name.$error.pattern">Não utilize caracteres especiais</h6>
             </div>
             <div class="login-container-form-item"> 
                 <label for="network">Operadora</label>
@@ -34,7 +35,7 @@
               Dados inválidos
             </div> -->
             <div class="login-container-form-item">
-                <button class="btn btn-dark btn-block login-btn" ng-click="submitCard(card, network)" ng-disabled="">Criar</button>
+                <button class="btn btn-dark btn-block login-btn" ng-click="submitCard(card, network)" ng-disabled="!card.printed_name || !network || !card.expiration_date">Criar</button>
             </div>
         </div>
       </form>

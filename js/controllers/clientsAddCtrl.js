@@ -1,20 +1,14 @@
-myApp.controller("clientsAddCtrl", ['$scope', "ClientsService", "$state", function($scope, ClientsService, $state) {
-  $scope.client = {
-    email: '',
-    name: '',
-    age: '',
-    net_worth: '',
-  }
-
-  $scope.check = true;
+myApp.controller("clientsAddCtrl", ['$scope', "ClientsService", "AlertMessage", "$state", function($scope, ClientsService, AlertMessage, $state) {
+  $scope.client = {}
 
   $scope.createClient = () => {
     return ClientsService.createClient($scope.client)
       .then(() => {
+        AlertMessage.success('Cliente criado comsucesso.');
         $state.go('clientsHome');
       })
       .catch(() => {
-        $scope.check = false;
+        AlertMessage.error('Algo deu errado, por favor reveja os dados inseridos.');
       }); 
   };
 }]);

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-light bg-dark" >
+  <a class="navbar-brand" style="display: flex; gap: 3vh; cursor: pointer;" ui-sref="home">
+    <img src="../assets/img/wallet_without_black.png" width="50" class="d-inline-block align-top" alt="">
+    <h1 style="margin: auto; color: white;">CarteiraTop</h1>
+  </a>
+</nav>
+<div style="width: 100%; height: 88.3vh; background-color:white; display:flex; flex-direction: column;">
+  <div style="border-width: 1px; border-style: solid; border-color: #1F1F21; margin: auto; width: 80%; height: 80vh;">
+    <div style="display: flex; flex-direction:row; justify-content:space-between">
+      <h2 style="margin-left: 5vh; text-align: center;">Informações</h2>
+      <div style="display: flex; flex-direction:row; height: min-content; gap: 3vh; margin: 2vh; align-items: center;">
+        <a ui-sref="clients-edit">
+          <button class="btn btn-block btn-primary" style="margin: auto; width: 12vh;">Editar</button>
+        </a>
+
+        <button ng-click="delClient(clientId)" class="btn btn-block btn-danger" style="margin: auto; width: 12vh"> Excluir</button>
+      </div>
+    </div>
+    <hr>
+    <div style="display: flex; justify-content: space-between;">
+      <div style="margin-left: 2vh;">
+        <h5>Nome: {{client.name}}</h5>
+        <h5>Idade: {{client.age}} anos</h5>
+        <h5>E-mail: {{client.email}}</h5>
+        <h5>Patrimônio: {{client.net_worth | currency: 'R$ ' : 2}}</h5>
+      </div>
+      <div style="margin-right: 2vh;">
+        <h4 >Hoje esse cliente tem direito ao cartão {{atualCardType}}</h4>
+        <a ui-sref="client-cards">
+          <button class="btn btn-block btn-primary" style="width: 41vh; margin: 5vh auto;"> Ir para gerenciamento de cartões</button>
+        </a>
+      </div>
+    </div>
+
+
+    <div>
+      <h5 style="text-align: center;">Alguns de seus cartões</h5>
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" ng-repeat="card in cards | limitTo: 3 ">
+          <div class="card {{card.type}}" style="width: 270px; height: 150px; margin: 4vh" id="{{card.id}}">
+            <h5 style="margin-left: 3vh;">{{card.type}}</h5>
+            <div style="margin: 0 auto 4.5vh 2vh;">
+              <img src="../assets/img/chip.png" alt="" class="chip" style=" width: 8vh;">
+            </div>
+            <div style="margin-left: 3vh;">
+              <h5>{{card.number}}</h5>
+            </div>
+
+          </div>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.home-containers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-card {
+  border-radius: 18px; 
+  margin: 0 5vh 0 0;
+  width: 45vh;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.client-home {
+  transition: .15s;
+  text-overflow: ellipsis;
+}
+
+.client-home:hover {
+  color: #3A99C9;
+  transform: scale(1.02);
+  cursor: pointer;
+}

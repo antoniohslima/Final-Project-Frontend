@@ -1,0 +1,36 @@
+.login-container-form-item {
+  margin: 10px;
+}
+
+.login-btn {
+  margin-top: 30px;
+}
+
+.login-text {
+  max-width: 340px;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.container-login-page {
+  border-radius: 25px; 
+  background-color: #DAD6CD;
+  max-width: max-content;
+  display: flex;
+  margin: 5vh 70vh auto auto;
+}
+
+.header-img {
+  max-height: 200px;
+  max-width: auto;
+  display: block;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.networks-login {
+  width: 10vh;
+}

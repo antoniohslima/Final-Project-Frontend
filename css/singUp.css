@@ -1,0 +1,28 @@
+.container-singUp-page{
+  display:flex; 
+  justify-content: space-evenly; 
+  align-items: center;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.half-page-container {
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.right {
+  right: 0;
+  background-color: #1F1F21;
+  width: 60%;
+}
+
+.left {
+  left: 0;
+  background-color: #DAD6CD;
+  width: 40%;
+}

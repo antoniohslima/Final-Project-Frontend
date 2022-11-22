@@ -1,0 +1,37 @@
+.clients-container {
+  width: 90%;
+  margin:0 auto 0 auto;
+  text-align: center;
+}
+
+.form-clients:focus {
+  animation: input-grow 0.25s ease-in forwards;
+}
+
+.form-clients:not(:focus) {
+  animation: input-decrese 0.25s ease-in forwards;
+}
+
+.icons {
+  cursor: pointer;
+}
+
+.info {
+  color: #1F1F21;
+  margin-bottom: 10vh;
+}
+
+@keyframes input-grow {
+  100% {
+    width: 26%;
+  }
+}
+
+@keyframes input-decrese {
+  0% {
+    width: 26%;
+  }
+  100% {
+    width: 20%;
+  }
+}

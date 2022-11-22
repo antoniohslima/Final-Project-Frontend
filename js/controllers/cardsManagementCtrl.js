@@ -1,5 +1,6 @@
 myApp.controller("cardsManagementCtrl", ['$scope', "ClientsService", "ClientsCardService", "AlertMessage", "$state", function($scope, ClientsService, ClientsCardService, AlertMessage, $state) {
   $scope.clientId = localStorage.getItem('clientId');
+  localStorage.setItem('backToClientPage', false);
 
 
   $scope.goToCreateCard = () => {

@@ -17,6 +17,7 @@ myApp.controller("homeCtrl", ['$scope', "ManagerService", "ClientsService",  "Cl
 
   $scope.goToClientPage = (clientId) => {
     localStorage.setItem('clientId', clientId);
+    localStorage.setItem('backToClientPage', true);
 
     $state.go('client-visualization');
   }

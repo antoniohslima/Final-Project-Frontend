@@ -1,20 +1,22 @@
 <div style="background-color: white; height:100vh">
-  <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 5vh 0 5vh;">
-    <div style="align-items: center;">
-      <a ui-sref="clientsHome">
-        <i  class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
-      </a>
-    </div>
-    <h2>Cartões</h2>
-    <a ui-sref="home">
-      <i class="fa fa-home fa-2x" aria-hidden="true" style="background-color:white;"></i>
+  <nav class="navbar navbar-light bg-dark" >
+    <a class="navbar-brand" style="display: flex; gap: 3vh; cursor: pointer;" ui-sref="home">
+      <img src="../assets/img/wallet_without_black.png" width="50" class="d-inline-block align-top" alt="">
+      <h1 style="margin: auto; color: white;">CarteiraTop</h1>
     </a>
-  </div>
+
+  </nav>
+
   
   <hr style="margin-top: -3px;">
   
   <div class="clients-container">
     <div style="display:flex; justify-content: space-between;">
+      <div style="width: 11.8%; text-align: left;">
+        <a ui-sref="clientsHome">
+          <i  class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+        </a>
+      </div>
       <h3 style="text-align: center;" id="x">{{client.name}}</h3>
       <button class="btn btn-block" ng-click="goToCreateCard(client.CardType)" style="width: 11.8%; background-color: #4AB43A; color: white;">Novo cartão</button>
 

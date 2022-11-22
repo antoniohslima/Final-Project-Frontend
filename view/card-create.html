@@ -14,6 +14,7 @@
                 <label for="name">Nome impresso</label>
                 <input class="form-control" type="text" ng-model="card.printed_name" ng-required="true" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z]+$/" name="printed_name"/>
                 <h6 style="color:red; font-size: small;" ng-show="cardForm.printed_name.$error.pattern">Não utilize caracteres especiais</h6>
+                <!-- <h6 style="color:red; font-size: small;" ng-show="cardForm.printed_name.$error">Utilize no máximo 25 caracteres</h6> -->
             </div>
             <div class="login-container-form-item"> 
                 <label for="network">Operadora</label>

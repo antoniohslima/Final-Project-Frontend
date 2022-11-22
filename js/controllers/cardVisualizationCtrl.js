@@ -2,10 +2,20 @@ myApp.controller("cardVisualizationCtrl", ['$scope', "ClientsCardService", "Netw
   const clientId = localStorage.getItem('clientId');
   const cardId = localStorage.getItem('cardId');
   const card_id = localStorage.getItem('card_id_network');
+  const back = localStorage.getItem('backToClientPage');
   
   const cardHTML = document.getElementById('card-container');
   const cardBackHTML = document.getElementById('card-container-back');
   
+  $scope.back = () => {
+    if(back === 'false'){
+      return $state.go('client-cards');
+    } 
+    
+    $state.go('client-visualization');
+  }
+
+
   $scope.setCardStyle = (type) => {
     cardHTML.classList.add(`${type}`);
     cardBackHTML.classList.add(`${type}-back`);

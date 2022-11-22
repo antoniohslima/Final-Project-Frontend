@@ -10,7 +10,7 @@
                 <img src="../assets/img/VISA.png" alt="" class="networks-login">
             </div>
         </div>
-        <form class="jumbotron" style="background-color: rgba(255, 255, 255, 0.74);">
+        <form class="jumbotron" style="background-color: rgba(255, 255, 255, 0.74); height: 60vh;">
             <div style="margin: -40px auto -40px auto;">
                 <h2 style="margin-bottom:30px">Iniciar CarteiraTop</h2>
                 <hr>
@@ -20,14 +20,16 @@
                 </div>
                 <div class="login-container-form-item"> 
                     <label for="password">Senha</label>
-                    <input class="form-control" type="password" ng-model="manager.password" ng-minlength="6" ng-required="true" placeholder=""/>
+                    <input class="form-control" type="password" ng-model="manager.password" ng-required="true" placeholder=""/>
                 </div>
                 <div class="login-container-form-item">
                     <button class="btn btn-dark btn-block login-btn" ng-click="login()" ng-disabled="!manager.email || !manager.password">Login</button>
+                    <div style="text-align: center; margin-top: 3vh;">
+                        <a  ui-sref="recover">Esqueci minha senha</a>
+                    </div>
                 </div>
                 <br>
-                <br>
-                <h7 style="margin-top: 10px">Não tem uma conta? <a  ui-sref="new-manager">Cadastre-se aqui</a></h7>
+                <h7 ">Não tem uma conta? <a  ui-sref="new-manager">Cadastre-se aqui</a></h7>
             </div>
         </form>
     </div>

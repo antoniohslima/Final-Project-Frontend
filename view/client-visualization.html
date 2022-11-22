@@ -9,11 +9,11 @@
     <div style="display: flex; flex-direction:row; justify-content:space-between">
       <h2 style="margin-left: 5vh; text-align: center;">Informações</h2>
       <div style="display: flex; flex-direction:row; height: min-content; gap: 3vh; margin: 2vh; align-items: center;">
+        
+        <button ng-click="delClient(clientId)" class="btn btn-block btn-danger" style="margin: auto; width: 12vh"> Excluir</button>
         <a ui-sref="clients-edit">
           <button class="btn btn-block btn-primary" style="margin: auto; width: 12vh;">Editar</button>
         </a>
-
-        <button ng-click="delClient(clientId)" class="btn btn-block btn-danger" style="margin: auto; width: 12vh"> Excluir</button>
       </div>
     </div>
     <hr>

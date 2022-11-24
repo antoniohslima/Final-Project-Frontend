@@ -13,7 +13,15 @@
   <div class="clients-container">
     <div style="display:flex; justify-content: space-between;">
       <input class="form-control form-clients" type="text" ng-model="search" placeholder="Cliente..." style="width: 20% ;" />
-      <!-- <button class="btn btn-block" ng-click="principal()" style="width: 20%; background-color: black; color: white;">Voltar</button> -->
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Exportar
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="form-control" ng-click="generatePDF()">Gerar PDF</a> 
+        </div>
+      </div>
       <button class="btn btn-block" ng-click="goToAddClients()" style="width: 11.8%; background-color: #3A99C9; color: white;">Adicionar</button>
 
     </div>

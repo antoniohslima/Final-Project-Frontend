@@ -1,4 +1,6 @@
-myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage",  function($scope, ClientsService, $state, AlertMessage) {
+myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage", "pdfService", function($scope, ClientsService, $state, AlertMessage, pdfService) {
+  $scope.email = localStorage.getItem('email');
+
   $scope.logOut = async () => {
     const confirmation = await Swal.fire({
       title: 'Tem certeza que dejesa sair?',
@@ -63,6 +65,17 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
       })
   }
 
+  $scope.generatePDF = () => { 
+    return pdfService.generate()
+    .then((resp) => {
+      console.log(resp.data);
+      window.open(resp.data, '_blank')
+      
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+  }
 
   listClients();
 }]);

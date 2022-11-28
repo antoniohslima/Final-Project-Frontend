@@ -61,7 +61,7 @@
       <nav>
         <ul class="pagination" ng-show="pages.length > 1">
           <li>
-            <a class="page-link">
+            <a class="page-link" ng-click="listClients(0)">
                Primeira
             </a>
           </li>
@@ -81,7 +81,7 @@
             </a>
           </li>
           <li >
-            <a class="page-link">
+            <a class="page-link" ng-click="listClients(totalPages - 1)">
                última
             </a>
           </li>

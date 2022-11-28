@@ -1,4 +1,4 @@
-myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage", "pdfService", function($scope, ClientsService, $state, AlertMessage, pdfService) {
+myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage", "pdfService", "xlsService", function($scope, ClientsService, $state, AlertMessage, pdfService, xlsService) {
   $scope.email = localStorage.getItem('email');
 
   $scope.logOut = async () => {
@@ -20,25 +20,17 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
     $state.go('login');
   }
 
-  const listClients = () => { 
-    return ClientsService.getClients()
-    .then((resp) => {
-      $scope.allClients = resp.data;
-      })
-      .catch((e) => {
-       
-      })
-  }
-
+  
+  
   $scope.goToAddClients = () => {
     $state.go('clients-add');
   }
-
+  
   $scope.goToPath = (id, path) => {
     localStorage.setItem("clientId", id);
     $state.go(path);
   }
-
+  
   $scope.deleteClient = async (id) => {
     const confirmation = await Swal.fire({
       title: 'Tem certeza que dejesa excluir esse cliente?',
@@ -50,7 +42,7 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
       confirmButtonText: 'Excluir',
       cancelButtonText: "Cancelar",
     });
-
+    
     if (confirmation.isConfirmed) {
       AlertMessage.success("Usuário excluido!")
     }
@@ -58,24 +50,75 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
     if (!confirmation.isConfirmed) {
       return;
     }
-
+    
     ClientsService.deleteClient(id)
-      .then(() => {
-        listClients()
-      })
+    .then(() => {
+      $scope.listClients(0)
+    })
   }
-
+  
   $scope.generatePDF = () => { 
     return pdfService.generate()
     .then((resp) => {
-      console.log(resp.data);
       window.open(resp.data, '_blank')
       
-      })
-      .catch((e) => {
-        console.log(e);
+    })
+    .catch((e) => {
+      AlertMessage.error('Erro ao criar o pdf');
+    })
+  }
+  
+  $scope.generateXLS = () => { 
+    return xlsService.generate()
+    .then((resp) => {
+      window.open(resp.data.url, '_blank')
+      
+    })
+    .catch(() => {
+      AlertMessage.error('Erro ao criar o xls');
+    })
+  }
+
+  $scope.currentPage = 0;
+  $scope.totalPages = 0;
+
+  $scope.listClients = (page) => { 
+
+    const lastPage = $scope.totalPages - 1;
+
+    if (page > lastPage || page < 0) return;
+
+    return ClientsService.getClients(page)
+    .then((resp) => {
+
+      $scope.allClients = resp.data;
+      
+      $scope.currentPage = page;
+      
       })
   }
 
-  listClients();
+  $scope.checkActive = (page) => {
+    if (page === $scope.currentPage) return true;
+    return false
+  }
+  
+  const countClients = () => { 
+    return ClientsService.countClients()
+    .then((resp) => {
+      const totalClients = resp.data;
+      const totalPages = Math.ceil(totalClients / 7);
+      $scope.totalPages = totalPages;
+
+      $scope.pages = []
+
+      for (let i = 0; i < totalPages; i++){
+        $scope.pages.push(i);
+      }
+
+      $scope.listClients(0);
+      })
+  }
+  
+  countClients();
 }]);

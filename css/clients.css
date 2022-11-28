@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.page-link {
+  color: #1F1F21;
+}
+
 .info {
   color: #1F1F21;
   margin-bottom: 10vh;

@@ -14,39 +14,81 @@
     <div style="display:flex; justify-content: space-between;">
       <input class="form-control form-clients" type="text" ng-model="search" placeholder="Cliente..." style="width: 20% ;" />
 
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Exportar
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="form-control" ng-click="generatePDF()">Gerar PDF</a> 
+      <div style="display: flex; flex-direction: row; gap: 3vh;">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Exportar
+          </button>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="form-control" ng-click="generatePDF()">Gerar PDF</a> 
+            <a class="form-control" ng-click="generateXLS()">Gerar XLS</a>
+          </div>
+          <button class="btn " ng-click="goToAddClients()" style="background-color: #3A99C9; color: white;">Adicionar</button>
         </div>
-      </div>
-      <button class="btn btn-block" ng-click="goToAddClients()" style="width: 11.8%; background-color: #3A99C9; color: white;">Adicionar</button>
+
+        </div>
 
     </div>
 
     <hr>
   
-    <table ng-show="allClients.length > 0" class="table table-bordered table-secondary">
-      <tr>
-        <th>Nome</th>
-        <th>E-mail</th>
-        <th>Idade</th>
-        <th>Patrimônio</th>
-        <th>Cartões</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr ng-repeat="client in allClients | filter: {name: search} | orderBy: 'name'">
-        <td>{{client.name}}</td>
-        <td>{{client.email}}</td>
-        <td>{{client.age}}</td>
-        <td>{{client.net_worth | currency: 'R$ ' : 2}}</td>
-        <td><i class="fa fa-credit-card icons" aria-hidden="true" ng-click="goToPath(client.id, 'client-cards')"></i></td>
-        <td><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToPath(client.id, 'clients-edit')"></i></td>
-        <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteClient(client.id)"></i></td>
-      </tr>
-    </table>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div style="height: 65vh; width: 100%;">
+        <table ng-show="allClients.length > 0" class="table table-bordered table-secondary" >
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Idade</th>
+            <th>Patrimônio</th>
+            <th>Cartões</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="client in allClients | filter: {name: search} | orderBy: 'name'">
+            <td>{{client.name}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.age}}</td>
+            <td>{{client.net_worth | currency: 'R$ ' : 2}}</td>
+            <td><i class="fa fa-credit-card icons" aria-hidden="true" ng-click="goToPath(client.id, 'client-cards')"></i></td>
+            <td><i class="fa fa-pencil icons" aria-hidden="true" ng-click="goToPath(client.id, 'clients-edit')"></i></td>
+            <td><i class="fa fa-trash-o icons" aria-hidden="true" ng-click="deleteClient(client.id)"></i></td>
+          </tr>
+        </table>
+
+      </div>
+
+      <nav>
+        <ul class="pagination" ng-show="pages.length > 1">
+          <li>
+            <a class="page-link">
+               Primeira
+            </a>
+          </li>
+          <li>
+            <a class="page-link" ng-click="listClients(currentPage - 1)">
+               Anterior
+            </a>
+          </li>
+          <li ng-repeat="page in pages" class="page-item" ng-class="{active: checkActive(page)}">
+            <a class="page-link" ng-click="listClients(page)" id="{{page}}" >
+              {{page + 1}}
+            </a>
+          </li>
+          <li >
+            <a class="page-link" ng-click="listClients(currentPage + 1)">
+               Próxima
+            </a>
+          </li>
+          <li >
+            <a class="page-link">
+               última
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+    </div>
+
   </div>
 </div>

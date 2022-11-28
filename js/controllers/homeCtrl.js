@@ -1,7 +1,7 @@
 myApp.controller("homeCtrl", ['$scope', "ManagerService", "ClientsService",  "ClientsCardService", "$state", function($scope, ManagerService, ClientsService, ClientsCardService, $state) {
   
   $scope.getClients = () => {
-    return ClientsService.getClients()
+    return ClientsService.getClients(0)
       .then(resp => {
         $scope.clients = resp.data;
 

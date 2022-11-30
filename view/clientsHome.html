@@ -58,7 +58,7 @@
 
       </div>
 
-      <nav>
+      <!-- <nav>
         <ul class="pagination" ng-show="pages.length > 1">
           <li>
             <a class="page-link" ng-click="listClients(0)">
@@ -86,7 +86,9 @@
             </a>
           </li>
         </ul>
-      </nav>
+      </nav> -->
+
+      <pagination  ng-if="!loading" total-items="totalItems" items-per-page="7" page="page" list-fn="listClients"></pagination>
       
     </div>
 

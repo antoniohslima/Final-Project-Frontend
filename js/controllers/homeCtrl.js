@@ -1,9 +1,9 @@
 myApp.controller("homeCtrl", ['$scope', "ManagerService", "ClientsService",  "ClientsCardService", "$state", function($scope, ManagerService, ClientsService, ClientsCardService, $state) {
   
   $scope.getClients = () => {
-    return ClientsService.getClients(0)
+    return ClientsService.getClients(1)
       .then(resp => {
-        $scope.clients = resp.data;
+        $scope.clients = resp.data.clients;
 
         $scope.clients.forEach(element => {
           ClientsCardService.getClientCards(element.id)

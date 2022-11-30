@@ -1,5 +1,10 @@
 myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "AlertMessage", "pdfService", "xlsService", function($scope, ClientsService, $state, AlertMessage, pdfService, xlsService) {
   $scope.email = localStorage.getItem('email');
+  $scope.page = 1;
+
+  const init = () => {
+    listClients(1);
+  }
 
   $scope.logOut = async () => {
     const confirmation = await Swal.fire({
@@ -20,8 +25,6 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
     $state.go('login');
   }
 
-  
-  
   $scope.goToAddClients = () => {
     $state.go('clients-add');
   }
@@ -63,7 +66,7 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
       window.open(resp.data, '_blank')
       
     })
-    .catch((e) => {
+    .catch(() => {
       AlertMessage.error('Erro ao criar o pdf');
     })
   }
@@ -78,47 +81,24 @@ myApp.controller("clientsHomeCtrl", ['$scope', "ClientsService", "$state", "Aler
       AlertMessage.error('Erro ao criar o xls');
     })
   }
+  
+  const listClients = page => { 
+    $scope.loading = true;
 
-  $scope.currentPage = 0;
-  $scope.totalPages = 0;
-
-  $scope.listClients = (page) => { 
-
-    const lastPage = $scope.totalPages - 1;
-
-    if (page > lastPage || page < 0) return;
+    $scope.page = page;
 
     return ClientsService.getClients(page)
-    .then((resp) => {
+      .then((resp) => {
+        $scope.allClients = resp.data.clients;
+        
+        if (page === 1) {
+          $scope.totalItems = resp.data.totalItems;
+        }
 
-      $scope.allClients = resp.data;
-      
-      $scope.currentPage = page;
-      
+        $scope.loading = false;
       })
-  }
+  };
 
-  $scope.checkActive = (page) => {
-    if (page === $scope.currentPage) return true;
-    return false
-  }
-  
-  const countClients = () => { 
-    return ClientsService.countClients()
-    .then((resp) => {
-      const totalClients = resp.data;
-      const totalPages = Math.ceil(totalClients / 7);
-      $scope.totalPages = totalPages;
-
-      $scope.pages = []
-
-      for (let i = 0; i < totalPages; i++){
-        $scope.pages.push(i);
-      }
-
-      $scope.listClients(0);
-      })
-  }
-  
-  countClients();
+  init();
+  $scope.listClients = listClients;
 }]);

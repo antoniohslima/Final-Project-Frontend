@@ -1,7 +1,7 @@
 myApp.directive('pagination', function() {
   return {
     restict: 'E',
-    templateUrl: './view/pagination.html',
+    templateUrl: './views/pagination.html',
     scope: {
       totalItems: "=",
       listFn: "=",
@@ -18,14 +18,6 @@ myApp.directive('pagination', function() {
         
         $scope.listFn(page);
       }
-
-      // if ($scope.page > $scope.totalPages) {
-      //   $scope.page = $scope.totalPages;
-      // }
-
-      // if ($scope.page < 1) {
-      //   $scope.page = 1;
-      // }
 
       for (let i = 1; i <= $scope.totalPages; i++){
         $scope.pages.push(i);
